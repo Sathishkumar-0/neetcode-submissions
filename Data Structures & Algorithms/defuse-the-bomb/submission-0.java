@@ -1,0 +1,12 @@
+class Solution {
+    public int[] decrypt(int[] code, int k) {
+        int n=code.length;
+        int[] ans=new int[n];
+        for(int i=0;i<n;i++){
+            for(int j=1;j<=Math.abs(k);j++){
+                ans[i]+=code[(i+(k>0?j:-j)+n)%n];
+            }
+        }
+        return ans;
+    }
+}
